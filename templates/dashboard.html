@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <!-- Page Header -->
+
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Panel</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a href="/edit/0" style="float: left;"><button class="btn btn-primary">Add New Popst</button></a>
+        <a href="/logout" style="float: right;"><button class="btn btn-primary">Logout</button></a>
+      </div>
+      <hr>
+      <div class="col-md-12">
+        <form action="/uploader" method="post" enctype="multipart/form-data">
+          <input type="file" name="file1">
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+      </div>
+      <hr>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Slug</th>
+            <th scope="col">Tagline</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for post in posts %}
+          <tr>
+            <th scope="row">{{ post.id }}</th>
+            <td>{{ post.title }}</td>
+            <td>{{ post.slug }}</td>
+            <td>{{ post.tagline }}</td>
+            <td><a href="/edit/{{ post.id }}"><button class="btn btn-primary">Edit</button></a></td>
+            <td><a href="/delete/{{ post.id }}"><button class="btn btn-danger">Delete</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}

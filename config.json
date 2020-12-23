@@ -1,0 +1,24 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "postgresql://postgres:postgres@localhost/flask-web-tut",
+    "prod_uri": "postgresql://postgres:postgres@localhost/flask-web-tut",
+
+    "fb_url": "https://www.facebook.com/ravikazi/",
+    "tw_url": "https://www.facebook.com/ravikazi/",
+    "gh_url": "https://www.facebook.com/ravikazi/",
+
+    "gmail-username": "ravikumarkazi@gmail.com",
+    "gmail-password": "yourGmailPassword",
+
+    "blog_name" : "Thunder Blog",
+    "no_of_posts" : 2,
+
+    "login_logo" : "login-logo.svg",
+    "admin_username" : "ravikumarkazi",
+    "admin_password" : "admin",
+
+    "uploaded_file_location": "C:\\sde-projects\\python-projects\\flask-web-tut\\static\\uploaded"
+  }
+}

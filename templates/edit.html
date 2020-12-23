@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static',filename = 'img/contact-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Edit/Update</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a href="/dashboard" style="float: left;"><button class="btn btn-primary">Dashboard</button></a>
+
+        <a href="/logout" style="float: right;"><button class="btn btn-primary">Logout</button></a>
+      </div>
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form name="sentMessage" id="contactForm" action="/edit/{{ post_id }}" method="post" novalidate>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Title</label>
+              <input type="text" class="form-control" placeholder="Title" name ="title" id="title" value="{{ post.title }}" required data-validation-required-message="Title Please.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Tagline</label>
+              <input type="text" class="form-control" placeholder="Tagline" name ="tagline" id="tagline" value="{{ post.tagline }}"required data-validation-required-message="Taline Please!">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+         
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Slug</label>
+              <input type="text" class="form-control" placeholder="Slug" name ="slug" id="slug" value="{{ post.slug }}"required data-validation-required-message="Slug Please.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <!-- <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Image File</label>
+              <input type="file" class="form-control" placeholder="Image File" name ="img_file" id="img_file" required data-validation-required-message="Image Please.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div> -->
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Image File</label>
+              <input type="text" class="form-control" placeholder="Image File" name ="img_file" id="img_file" value="{{ post.img_file }}" required data-validation-required-message="Image Please.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Content</label>
+              <textarea rows="5" class="form-control" placeholder="Content" name ="content" id="content" value="{{ post.content }}" required data-validation-required-message="Please enter a content."></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Contact Form JavaScript -->
+  <script src="{{ url_for('static',filename = 'js/jqBootstrapValidation.js')}}"></script>
+  <script src="{{ url_for('static',filename = 'js/contact_me.js')}}"></script>
+{% endblock %}
